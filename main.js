@@ -44,10 +44,10 @@ function playerPlay() {
     return playerChoice;
 }
 
-let playerSelection = playerPlay();
-let computerSelection = computerPlay();
+
 let scorePlayer = 0; // to save the score of the player
 let scoreComputer = 0; // to save the score of the computer 
+
 // build function which decide and return a string that declares  the winner of the round 
 
 function playSingleRound(playerSelection, computerSelection) {
@@ -72,12 +72,12 @@ function playSingleRound(playerSelection, computerSelection) {
         }
     } else {
         if (playerSelection === 'rock') {
-            whoWin = 'You Win! ROCK beats Scissor';
+            whoWin = 'You Win! ROCK beats Scissors';
             scorePlayer++;
         } else if (playerSelection === 'paper') {
-            whoWin = 'You Lose!  Scissor beats Paper';
+            whoWin = 'You Lose!  Scissors beats Paper';
             scoreComputer++;
-        } else { whoWin = 'Scissor and Scissor! no one wins' }
+        } else { whoWin = 'Scissors and Scissors! no one wins' }
     }
     return whoWin;
 }
@@ -91,13 +91,19 @@ function playSingleRound(playerSelection, computerSelection) {
 function game() {
     do {
 
-    } while ()
+        let playerSelection = playerPlay();
+        let computerSelection = computerPlay();
+        console.log("computer : " + computerSelection);
+        console.log(" palyer :  " + playerSelection);
+        let result = playSingleRound(playerSelection, computerSelection);
+        console.log(` ${result}  The score [ player : ${scorePlayer} | Computer : ${scoreComputer} ] `);
+    } while ((scoreComputer < 5) && (scorePlayer < 5))
+    console.log("Game Over");
+    if (scoreComputer == 5) { console.log(" YAAAA3 Computer Wins this time!!! :("); } else {
+        console.log("WOOOHOO YOU Win the game !!! :)");
+    }
 
 }
 
-// tests:
-
-console.log("computer : " + computerSelection);
-console.log(" palyer :  " + playerSelection);
-
-let result = playSingleRound(playerSelection, computerSelection);
+// the main:
+game();
