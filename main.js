@@ -17,6 +17,7 @@ function computerPlay() {
  * the winner of the round like so: "You Lose! Paper beats Rock"
  */
 
+// function tha reads the choice of the player and return it .
 function playerPlay() {
     let playerChoice;
     let heChooses = false;
@@ -45,7 +46,58 @@ function playerPlay() {
 
 let playerSelection = playerPlay();
 let computerSelection = computerPlay();
+let scorePlayer = 0; // to save the score of the player
+let scoreComputer = 0; // to save the score of the computer 
+// build function which decide and return a string that declares  the winner of the round 
+
+function playSingleRound(playerSelection, computerSelection) {
+    playerSelection = playerSelection.toLowerCase();
+    computerSelection = computerSelection.toLowerCase();
+    let whoWin;
+    if (computerSelection === 'rock') {
+        if (playerSelection === 'paper') {
+            whoWin = 'You Win! Paper beats Rock';
+            scorePlayer++;
+        } else if (playerSelection === 'scissors') {
+            whoWin = 'You Lose! Rock beats Scissors';
+            scoreComputer++;
+        } else { whoWin = ' Rock and Rock! No one wins' }
+    } else if (computerSelection === 'paper') {
+        if (playerSelection === 'rock') {
+            whoWin = 'You Lose!  Paper beats Rock ';
+            scoreComputer++;
+        } else if (playerSelection === 'paper') { whoWin = 'Paper and Paper ! no one wins' } else {
+            whoWin = 'You Win! Scissors beats Paper';
+            scorePlayer++;
+        }
+    } else {
+        if (playerSelection === 'rock') {
+            whoWin = 'You Win! ROCK beats Scissor';
+            scorePlayer++;
+        } else if (playerSelection === 'paper') {
+            whoWin = 'You Lose!  Scissor beats Paper';
+            scoreComputer++;
+        } else { whoWin = 'Scissor and Scissor! no one wins' }
+    }
+    return whoWin;
+}
+
+/**
+ * Write a NEW function called game(). Use the previous function inside of this one to play until one 
+ * of them reachs the  score = 5 . x rounds .
+ *  keeps score and reports a winner or loser at the end.
+ */
+
+function game() {
+    do {
+
+    } while ()
+
+}
 
 // tests:
-console.log(computerPlay());
+
+console.log("computer : " + computerSelection);
 console.log(" palyer :  " + playerSelection);
+
+let result = playSingleRound(playerSelection, computerSelection);
