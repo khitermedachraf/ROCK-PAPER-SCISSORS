@@ -106,5 +106,4 @@ function game() {
 }
 
 // the main instruction :
-
-game();
+document.getElementById("myBtn").addEventListener("click", game);
