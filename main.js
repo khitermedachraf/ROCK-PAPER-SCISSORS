@@ -105,5 +105,6 @@ function game() {
 
 }
 
-// the main:
+// the main instruction :
+
 game();
